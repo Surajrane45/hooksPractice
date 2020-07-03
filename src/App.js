@@ -1,6 +1,7 @@
 import React from "react";
 import { Counter } from "./example";
 import { MyTodoList } from "./Todos";
+import CustomHook from "./customHook";
 import "./App.css";
 
 const themes = {
@@ -23,6 +24,7 @@ function App() {
         <h1>Hooks Practice</h1>
         <Counter />
         <MyTodoList />
+        <CustomHook />
       </MyThemeContext.Provider>
     </div>
   );
