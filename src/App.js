@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Counter } from "./example";
+import { MyTodoList } from "./Todos";
+import "./App.css";
+
+const themes = {
+  light: {
+    foreground: "#000000",
+    background: "#eeeeee"
+  },
+  dark: {
+    foreground: "#ffffff",
+    background: "#222222"
+  }
+};
+
+export const MyThemeContext = React.createContext(themes.light);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MyThemeContext.Provider value={themes.dark}>
+        <h1>Hooks Practice</h1>
+        <Counter />
+        <MyTodoList />
+      </MyThemeContext.Provider>
     </div>
   );
 }
