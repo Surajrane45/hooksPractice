@@ -2,6 +2,7 @@ import React from "react";
 import { Counter } from "./example";
 import { MyTodoList } from "./Todos";
 import CustomHook from "./customHook";
+import Practice from "./immutableExamples";
 import "./App.css";
 
 const themes = {
@@ -25,6 +26,7 @@ function App() {
         <Counter />
         <MyTodoList />
         <CustomHook />
+        <Practice />
       </MyThemeContext.Provider>
     </div>
   );

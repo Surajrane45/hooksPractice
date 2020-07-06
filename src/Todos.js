@@ -1,5 +1,7 @@
 import React, { useReducer, useState, useContext } from "react";
 import { MyThemeContext } from "./App";
+import { Button } from "./styledComponents";
+
 function todoReducer(state, action) {
   switch (action.type) {
     case "add":
@@ -24,21 +26,21 @@ export function MyTodoList() {
   return (
     <div>
       <div>
-        <label for="todo">Add Todo:</label>
+        <label htmlFor="todo">Add Todo:</label>
         <input
           id="todo"
           type="text"
           value={todo}
           onChange={(event) => setTodo(event.target.value)}
         />
-        <button
+        <Button
           onClick={() => {
             dispatch({ type: "add", text: todo });
             setTodo("");
           }}
         >
           Add to List
-        </button>
+        </Button>
       </div>
       <h1>My Todo List</h1>
       <ul>

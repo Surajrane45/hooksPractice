@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Button } from "./styledComponents";
 
 export function Counter() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,7 @@ export function Counter() {
       <p>
         <strong>Simple Counter</strong>
       </p>
-      <label for="name">Name:</label>
+      <label htmlFor="name">Name:</label>
       <input
         id="name"
         type="text"
@@ -25,24 +26,24 @@ export function Counter() {
       <p>
         {name} clicked the counter {count} times
       </p>
-      <button onClick={() => setCount(count + 1)}>Click Me</button>
+      <Button onClick={() => setCount(count + 1)}>Click Me</Button>
       <br /> <br />
       <div>
-        <label for="hobby">Enter Your hobby:</label>
+        <label htmlFor="hobby">Enter Your hobby:</label>
         <input
           id="hobby"
           type="text"
           value={hobby}
           onChange={(event) => setHobby(event.target.value)}
         />
-        <button
+        <Button
           onClick={() => {
             setHobbies(hobbies.concat(hobby));
             setHobby("");
           }}
         >
           Add to List
-        </button>
+        </Button>
       </div>
       <ul>
         {hobbies.map((hobby) => (

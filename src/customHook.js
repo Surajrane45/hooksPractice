@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-
+import { Button, TomatoButton, Link } from "./styledComponents";
 const myAsyncFunction = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -36,9 +36,12 @@ function CustomHook() {
       <h1>A Custom Hook example using async call</h1>
       {value && <h2>{value}</h2>}
       {error && <h2>{error}</h2>}
-      <button onClick={execute} disabled={pending}>
+      <TomatoButton onClick={execute} disabled={pending}>
         Click here for Asynchronous Action
-      </button>
+      </TomatoButton>
+      <Link as="a" href="/">
+        Button as a Link
+      </Link>
     </div>
   );
 }
