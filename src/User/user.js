@@ -1,43 +1,33 @@
-import React, { useState } from "react";
-import { useDispatch, connect } from "react-redux";
+import React, { useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import UserList from "./userlist";
 import UserForm from "./userForm";
+import { createUser, updateUser, deleteUser } from "../Actions";
 
 function UserContainer(props) {
   const [username, setUsername] = useState("");
   const [job, setJob] = useState("");
   const dispatch = useDispatch();
 
+  const users = useSelector((state) => state.get("users"));
+  const error = useSelector((state) => state.get("error"));
+  const isLoading = useSelector((state) => state.get("isLoading"));
+
   const fetchUsersList = () => {
     dispatch({ type: "FETCH_USER" });
   };
 
-  const dispatchCreateUserRequest = () => {
-    dispatch({
-      type: "CREATE_USER",
-      payload: {
-        name: username,
-        job: job
-      }
-    });
-  };
+  const dispatchCreateUserRequest = useCallback(() => {
+    dispatch(createUser(username, job));
+  }, [dispatch, username, job]);
 
-  const dispatchUpdateUserRequest = () => {
-    dispatch({
-      type: "UPDATE_USER",
-      payload: {
-        name: username,
-        job: job
-      }
-    });
-  };
+  const dispatchUpdateUserRequest = useCallback(() => {
+    dispatch(updateUser(username, job));
+  }, [dispatch, username, job]);
 
-  const dispatchDeleteUserRequest = () => {
-    dispatch({
-      type: "DELETE_USER",
-      payload: username
-    });
-  };
+  const dispatchDeleteUserRequest = useCallback(() => {
+    dispatch(deleteUser(username));
+  }, [dispatch, username, job]);
 
   return (
     <div>
@@ -53,25 +43,12 @@ function UserContainer(props) {
           deleteUser={dispatchDeleteUserRequest}
         />
       </div>
-      {props.isLoading ? (
+      {isLoading ? (
         <h1>Loading...</h1>
       ) : (
-        <UserList
-          users={props.users.toJS()}
-          isLoading={props.isLoading}
-          error={props.error}
-        />
+        <UserList users={users} isLoading={isLoading} error={error} />
       )}
     </div>
   );
 }
-
-const mapStateToProps = (state) => {
-  return {
-    users: state.get("users"),
-    error: state.get("error"),
-    isLoading: state.get("isLoading")
-  };
-};
-
-export default connect(mapStateToProps, null)(UserContainer);
+export default UserContainer;

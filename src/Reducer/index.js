@@ -64,6 +64,11 @@ export function rootReducer(state = initState, action) {
       return state.set("isLoading", true);
 
     case "DELETE_USER_SUCCESSFUL":
+      console.log(
+        state
+          .get("users")
+          .findIndex((item) => item.get("first_name") === action.payload)
+      );
       return state.withMutations((state) => {
         state
           .set("isLoading", false)

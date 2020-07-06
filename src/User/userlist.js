@@ -7,8 +7,8 @@ export default function UserList(props) {
       <ul>
         {props.users.map((user) => {
           return (
-            <li key={user.last_name}>
-              Name-{user.first_name} {user.last_name}
+            <li key={user.get("last_name")}>
+              Name-{user.get("first_name")} {user.get("last_name")}
             </li>
           );
         })}
