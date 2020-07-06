@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "./styledComponents";
+import { Button } from "../StyledComponents/styledComponents";
 
 export function Counter() {
   const [count, setCount] = useState(0);

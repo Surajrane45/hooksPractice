@@ -1,8 +1,8 @@
 import React from "react";
-import { Counter } from "./example";
-import { MyTodoList } from "./Todos";
-import CustomHook from "./customHook";
-import Practice from "./immutableExamples";
+import { Counter } from "./Hooks/hooksExample";
+import { MyTodoList } from "./Hooks/Todos";
+import CustomHook from "./Hooks/customHook";
+import Practice from "./Immutable/immutableExamples";
 import "./App.css";
 
 const themes = {

@@ -1,5 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { Button, TomatoButton, Link } from "./styledComponents";
+import {
+  Button,
+  TomatoButton,
+  Link
+} from "../StyledComponents/styledComponents";
 const myAsyncFunction = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

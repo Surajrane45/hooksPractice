@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useContext } from "react";
-import { MyThemeContext } from "./App";
-import { Button } from "./styledComponents";
+import { MyThemeContext } from "../App";
+import { Button } from "../StyledComponents/styledComponents";
 
 function todoReducer(state, action) {
   switch (action.type) {
