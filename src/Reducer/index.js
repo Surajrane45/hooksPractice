@@ -74,7 +74,9 @@ export function rootReducer(state = initState, action) {
               .delete(
                 state
                   .get("users")
-                  .findIndex((item) => item.first_name === action.payload)
+                  .findIndex(
+                    (item) => item.get("first_name") === action.payload
+                  )
               )
           );
       });
