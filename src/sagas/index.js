@@ -9,10 +9,12 @@ function* AsyncFetchUser(action) {
       .then((response) => response.data);
 
     const userList = userData.data.reduce((user_list, user) => {
-      user_list.push({
-        first_name: user.first_name,
-        last_name: user.last_name
-      });
+      user_list.push(
+        Map({
+          first_name: user.first_name,
+          last_name: user.last_name
+        })
+      );
       return user_list;
     }, []);
 

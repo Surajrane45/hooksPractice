@@ -47,12 +47,10 @@ export function rootReducer(state = initState, action) {
             state
               .get("users")
               .findIndex(
-                (item) => item.first_name === action.payload.get("first_name")
+                (item) =>
+                  item.get("first_name") === action.payload.get("first_name")
               ),
-            (item) => {
-              item.last_name = action.payload.get("last_name");
-              return item;
-            }
+            (item) => item.set("last_name", action.payload.get("last_name"))
           )
         );
       });
