@@ -3,6 +3,7 @@ import { Counter } from "./Hooks/hooksExample";
 import { MyTodoList } from "./Hooks/Todos";
 import CustomHook from "./Hooks/customHook";
 import Practice from "./Immutable/immutableExamples";
+import UserContainer from "./User/user";
 import "./App.css";
 
 const themes = {
@@ -27,6 +28,7 @@ function App() {
         <MyTodoList />
         <CustomHook />
         <Practice />
+        <UserContainer />
       </MyThemeContext.Provider>
     </div>
   );
