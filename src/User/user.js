@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import UserList from "./userlist";
 import UserForm from "./userForm";
 import { createUser, updateUser, deleteUser } from "../Actions";
@@ -9,7 +9,7 @@ function UserContainer(props) {
   const [job, setJob] = useState("");
   const dispatch = useDispatch();
 
-  const users = useSelector((state) => state.get("users"));
+  const users = useSelector((state) => state.get("users"), shallowEqual);
   const error = useSelector((state) => state.get("error"));
   const isLoading = useSelector((state) => state.get("isLoading"));
 
